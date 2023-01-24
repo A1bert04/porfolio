@@ -3,8 +3,7 @@ import React from 'react'
 export default function Home() {
 
     return <div className="h-screen w-screen flex flex-col justify-center px-40">
-
-        <h1 className="text-black font-bree text-5xl">
+        <div className="text-black font-bree text-5xl">
             <div className="py-1 max-w-fit hover:text-transparent
             hover:bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text hover:scale-110">
                 {
@@ -55,6 +54,6 @@ export default function Home() {
                     )
                 }
             </div>
-        </h1>
+        </div>
     </div>
 }
