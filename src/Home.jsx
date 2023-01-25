@@ -1,54 +1,54 @@
-import React from 'react'
+import React, {createRef, useEffect, useState} from 'react'
 
 import './styles/lettersMenu.css'
 
+import Top from "./sections/Top.jsx";
+import ScrollArrow from "./components/scrollArrow";
+import FrontendSkills from "./sections/FrontendSkills.jsx";
+import AboutMe from "./sections/AboutMe.jsx";
+
 export default function Home() {
 
-    return <div className="h-screen w-screen flex flex-col justify-center px-52">
-        <div className="text-black font-bree text-7xl" id="text">
-            <div className="py-1 max-w-fit hover:text-transparent
-            hover:bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text
-            hover:animate-movetoright hover:translate-x-[5%] hover:scale-110
-            hover:-skew-y-1 menu-line">
-                {// For each letter in the string, create a span with the letter
-                    "ALBERT_BRU".split("").map((letter, i) => {
-                        return <span key={i} className={"cursor-pointer"}>{letter}</span>
-                    })}
-            </div>
-            <div className="py-1 max-w-fit hover:text-transparent
-            hover:bg-gradient-to-r from-emerald-500 to-amber-500 bg-clip-text
-            hover:animate-movetoright hover:translate-x-[5%] hover:scale-110
-            hover:-skew-y-1 menu-line">
-                {// For each letter in the string, create a span with the letter
-                    "WEB".split("").map((letter, i) => {
-                        return <span key={i} className={"cursor-pointer letter"}>{letter}</span>
-                    })}
-                &nbsp;&nbsp;&nbsp;
-                {// For each letter in the string, create a span with the letter
-                    "MAKER".split("").map((letter, i) => {
-                        return <span key={i} className={"cursor-pointer letter"}>{letter}</span>
-                    })}
-            </div>
-            <div className="py-1 max-w-fit hover:text-transparent
-                 hover:bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text
-                 hover:animate-movetoright hover:translate-x-[5%] hover:scale-110
-            hover:-skew-y-1 menu-line">
-                {// For each letter in the string, create a span with the letter
-                    "PROJECTS".split("").map((letter, i) => {
-                        return <span key={i} className={"cursor-pointer letter"}>{letter}</span>
-                    })}
-                &nbsp;&nbsp;&nbsp;
-                <span>&</span>
-            </div>
-            <div className="py-1 max-w-fit hover:text-transparent
-            hover:bg-gradient-to-r from-purple-500 to-red-500 bg-clip-text
-            hover:animate-movetoright hover:translate-x-[5%] hover:scale-110
-            hover:-skew-y-1 menu-line">
-                {// For each letter in the string, create a span with the letter
-                    "EXPERIENCE".split("").map((letter, i) => {
-                        return <span key={i} className={"cursor-pointer letter"}>{letter}</span>
-                    })}
-            </div>
+    const [bgColor, setBgColor] = useState('white');
+
+    const topRef = createRef(null);
+
+    function changeBgColor(newColor) {
+        setTimeout(() => setBgColor(newColor), 500);
+    }
+
+    useEffect(() => {
+        function handleScroll() {
+
+            // Get the scroll height of the top section
+            const componentHeights = {
+                top: topRef.current.getBoundingClientRect()
+            }
+
+            console.log(componentHeights.top)
+
+            if (componentHeights.top.bottom < -20) {
+                changeBgColor('#fcd34d')
+            }
+
+
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+
+    }, [])
+
+    return <div className={"overflow-x-hidden bg-fixed bg-cover"}
+        style={{ backgroundColor: bgColor, transition: "background-color 0.5s ease-out"}}>
+        <div ref={topRef} className="mb-48">
+            <Top/>
+            <ScrollArrow/>
         </div>
+        <div className="my-48">
+            <AboutMe/>
+        </div>
+        <FrontendSkills/>
     </div>
+
 }
