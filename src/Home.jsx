@@ -18,22 +18,13 @@ export default function Home() {
 
             let topComponent = topRef.current.getBoundingClientRect()
 
-            console.log(topComponent)
+            // console.log(topComponent)
 
-            if (topComponent.bottom < -50) {
-                setBgColor('#fcd34d')
+            if (topComponent.bottom <= -50) {
+                setBgColor('#d8b4fe')
             } else {
                 setBgColor('white')
             }
-
-            // if (topRef != null) {
-            //
-            //
-            //
-            // }
-
-            // console.log(componentHeights.top)
-
 
         }
 
