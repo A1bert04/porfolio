@@ -1,0 +1,10 @@
+/* Change all menu-line styles when one is hovered*/
+
+#text:has(.menu-line:hover) .menu-line:not(.menu-line:hover) {
+    opacity: 0.2;
+}
+
+.menu-line:hover {
+    opacity: 1;
+}
+
