@@ -10,26 +10,29 @@ import AboutMe from "./sections/AboutMe.jsx";
 export default function Home() {
 
     const [bgColor, setBgColor] = useState('white');
+    const topRef = createRef();
 
-    const topRef = createRef(null);
-
-    function changeBgColor(newColor) {
-        setTimeout(() => setBgColor(newColor), 500);
-    }
 
     useEffect(() => {
         function handleScroll() {
 
-            // Get the scroll height of the top section
-            const componentHeights = {
-                top: topRef.current.getBoundingClientRect()
+            let topComponent = topRef.current.getBoundingClientRect()
+
+            console.log(topComponent)
+
+            if (topComponent.bottom < -50) {
+                setBgColor('#fcd34d')
+            } else {
+                setBgColor('white')
             }
 
-            console.log(componentHeights.top)
+            // if (topRef != null) {
+            //
+            //
+            //
+            // }
 
-            if (componentHeights.top.bottom < -20) {
-                changeBgColor('#fcd34d')
-            }
+            // console.log(componentHeights.top)
 
 
         }
@@ -37,10 +40,10 @@ export default function Home() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
 
-    }, [])
+    }, [bgColor])
 
     return <div className={"overflow-x-hidden bg-fixed bg-cover"}
-        style={{ backgroundColor: bgColor, transition: "background-color 0.5s ease-out"}}>
+                style={{backgroundColor: bgColor, transition: "background-color 0.5s ease-out"}}>
         <div ref={topRef} className="mb-48">
             <Top/>
             <ScrollArrow/>
