@@ -11,15 +11,6 @@ module.exports = {
             fontFamily: {
                 'bree': ['Bree Serif', 'serif'],
             },
-            animation: {
-                'movetoright': 'movetoright 0.75s',
-            },
-            keyframes: {
-                'movetoright': {
-                    'from': { transform: 'translateX(0%) scale(1) skewY(0)'  },
-                    'to': { transform: 'translateX(5%) scale(1.1) skewY(-1deg)' },
-                }
-            }
         },
     },
     plugins: [],

@@ -2,10 +2,10 @@ import React, {createRef, useEffect, useState} from 'react'
 
 import './styles/lettersMenu.css'
 
-import Top from "./sections/Top.jsx";
+import Top from "./pages/Top.jsx";
 import ScrollArrow from "./components/scrollArrow";
-import FrontendSkills from "./sections/FrontendSkills.jsx";
-import AboutMe from "./sections/AboutMe.jsx";
+import FrontendSkills from "./pages/FrontendSkills.jsx";
+import AboutMe from "./pages/AboutMe.jsx";
 
 export default function Home() {
 
@@ -21,7 +21,7 @@ export default function Home() {
             // console.log(topComponent)
 
             if (topComponent.bottom <= -50) {
-                setBgColor('#d8b4fe')
+                setBgColor('black')
             } else {
                 setBgColor('white')
             }
@@ -35,7 +35,7 @@ export default function Home() {
 
     return <div className={"overflow-x-hidden bg-fixed bg-cover"}
                 style={{backgroundColor: bgColor, transition: "background-color 0.5s ease-out"}}>
-        <div ref={topRef} className="mb-48">
+        <div ref={topRef} className="mb-72">
             <Top/>
             <ScrollArrow/>
         </div>
