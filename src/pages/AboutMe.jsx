@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function AboutMe() {
     return <div className="w-screen h-screen flex flex-col justify-center items-center text-white">
         <div className="font-bree text-7xl" id="text">
