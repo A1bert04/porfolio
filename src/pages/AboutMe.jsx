@@ -1,4 +1,5 @@
-import React from "react";
+import React from "react"
+import Timeline from "../components/Timeline.jsx";
 
 export default function AboutMe() {
     return <div className="w-screen h-screen flex flex-col justify-center items-center text-white">
@@ -7,7 +8,7 @@ export default function AboutMe() {
                 About Me
             </div>
         </div>
-        <div className="flex flex-row w-screen pt-24 md:px-52 h-fit">
+        <div className="flex flex-row w-screen py-24 md:px-52 h-fit">
             <div className="w-1/2 pr-10 text-right text-xl font-bree">
                 <p className="py-4">
                     Hi! My name is Albert and I'm 18 years old. <br/>
@@ -27,11 +28,9 @@ export default function AboutMe() {
                 </p>
             </div>
             <div className="pl-10 w-1/2 flex flex-col justify-center min-h-max">
-                Insertar la imagen aqui MIAU
+                Insertar la imagen aqui
             </div>
         </div>
-        <div className="flex flex-col justify-center py-8 w-screen">
-
-        </div>
+        <Timeline/>
     </div>
 }

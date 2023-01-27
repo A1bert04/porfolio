@@ -3,10 +3,10 @@ import React, {createRef, useEffect, useState} from 'react'
 import './styles/lettersMenu.css'
 import './styles/hideScroll.css'
 
-import Top from "./pages/Top.jsx";
-import ScrollArrow from "./components/scrollArrow";
-import FrontendSkills from "./pages/FrontendSkills.jsx";
-import AboutMe from "./pages/AboutMe.jsx";
+import Top from "./pages/Top.jsx"
+import ScrollArrow from "./components/scrollArrow"
+import FrontendSkills from "./pages/FrontendSkills.jsx"
+import AboutMe from "./pages/AboutMe.jsx"
 
 export default function Home() {
 
