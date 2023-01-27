@@ -1,6 +1,7 @@
 import React, {createRef, useEffect, useState} from 'react'
 
 import './styles/lettersMenu.css'
+import './styles/hideScroll.css'
 
 import Top from "./pages/Top.jsx";
 import ScrollArrow from "./components/scrollArrow";
@@ -33,7 +34,7 @@ export default function Home() {
 
     }, [bgColor])
 
-    return <div className={"overflow-x-hidden bg-fixed bg-cover"}
+    return <div className={"bg-fixed bg-cover"}
                 style={{backgroundColor: bgColor, transition: "background-color 0.5s ease-out"}}>
         <div ref={topRef} className="mb-72">
             <Top/>
